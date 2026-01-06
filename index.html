@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hai Kamu!</title>
+    <style>
+        body {
+            background-color: #ffafbd;
+            background-image: linear-gradient(45deg, #ffafbd 0%, #ffc3a0 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+        }
+        h1 { font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        #btn-lari {
+            position: absolute;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+        #btn-diam {
+            padding: 10px 30px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #pesan-akhir { display: none; }
+        img { width: 200px; border-radius: 20px; margin-top: 20px; border: 3px solid white; }
+    </style>
+</head>
+<body>
+
+    <div id="game-section" class="container">
+        <h1>Kamu sayang aku gak?</h1>
+        <br>
+        <button id="btn-diam" onclick="menang()">SAYANG BANGET</button>
+        <button id="btn-lari" onmouseover="lari()" onclick="lari()">GAK</button>
+    </div>
+
+    <div id="pesan-akhir" class="container">
+        <h1>Yeeay! Aku juga sayang kamu! ❤️</h1>
+        <p>Semangat terus ya harinya!</p>
+        <img src="https://i.pinimg.com/originals/fe/18/84/fe18844abc04c810a9057b2866949397.gif" alt="Lucu">
+    </div>
+
+    <script>
+        function lari() {
+            const btn = document.getElementById('btn-lari');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function menang() {
+            document.getElementById('game-section').style.display = 'none';
+            document.getElementById('pesan-akhir').style.display = 'block';
+            alert("I Love You More! ❤️");
+        }
+    </script>
+
+</body>
+</html>
